@@ -120,9 +120,5 @@ public class AnalyticsController {
 			return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
-    
-    
-    
-    
-
+ 
 }
