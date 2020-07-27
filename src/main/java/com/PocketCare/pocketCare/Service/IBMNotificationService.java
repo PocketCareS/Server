@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.PocketCare.pocketCare.DAO.UserDataDAO;
-import com.PocketCare.pocketCare.Exception.CustomException;
 import com.PocketCare.pocketCare.model.NotificationDevicesResponse;
 import com.ibm.mobilefirstplatform.serversdk.java.push.APNs;
 import com.ibm.mobilefirstplatform.serversdk.java.push.APNs.Builder.APNSNotificationType;
@@ -35,6 +34,9 @@ public class IBMNotificationService {
 	private static final String notificationTitle = "PocketCare S tracing notification";
 	private static final String notificationSubTitle = "you have been exposed.";
 	private static final String bigTextNotification = "You have probably been exposed to COVID positive person. Please visit cdc website and watch your symptoms. url: https://www.cdc.gov/coronavirus/2019-nCoV/index.html";
+	private static final String overrideHost= "https://imfpush.ng.bluemix.net";
+	private static final String APIID= "2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6";
+	private static final String APIKEY = "Bgb_bR-Wm_xW_wiYjRNXloRVKW-9TNUUeZgMkz_s-RIk";
 
 	private Notification getNotification(List<String> deviceIdList){
 		Notification notification = new Notification.Builder().message(getMessage()).settings(getSettings()).target(getTarget(deviceIdList)).build();
@@ -44,7 +46,8 @@ public class IBMNotificationService {
 	public NotificationDevicesResponse sendNotifcation(List<String> deviceIdList) {
 		Notification ff = getNotification(deviceIdList);
 		NotificationListner listner = new NotificationListner();
-		PushNotifications.init(PushNotifications.US_SOUTH_REGION); 
+		PushNotifications.overrideServerHost = overrideHost;
+		PushNotifications.initWithApiKey(APIID,APIKEY,PushNotifications.US_SOUTH_REGION); 
 		PushNotifications.send(ff, listner);
 		NotificationDevicesResponse response = new NotificationDevicesResponse();
 		response.setStatusCode(listner.getStatusCode());
