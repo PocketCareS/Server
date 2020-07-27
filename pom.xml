@@ -103,6 +103,11 @@
 		<!-- <artifactId>spring-security-test</artifactId> -->
 		<!-- <scope>test</scope> -->
 		<!-- </dependency> -->
+		<dependency>
+			<groupId>com.ibm.mobilefirstplatform.serversdk.java</groupId>
+			<artifactId>push</artifactId>
+			<version>1.5.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>
