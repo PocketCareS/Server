@@ -25,6 +25,7 @@ public class NotificationService {
 	@Autowired
 	UserDataDAO userDataDao;
 
+	@Deprecated
 	public List<String> sendType1Notification() {
 		List<String> fcms = userDataDao.getAllFcmId();
 		try {
@@ -40,6 +41,7 @@ public class NotificationService {
 
 	}
 
+	@Deprecated
 	public void sendMulticast(List<String> registrationTokens) throws FirebaseMessagingException {
 		// [START send_multicast]
 		// Create a list containing up to 100 registration tokens.
@@ -61,6 +63,7 @@ public class NotificationService {
 		// [END send_multicast]
 	}
 
+	@Deprecated
 	public void sendMulticastAndHandleErrors(List<String> registrationTokens) throws FirebaseMessagingException {
 		// [START send_multicast_error]
 		// These registration tokens come from the client FCM SDKs.
@@ -89,5 +92,8 @@ public class NotificationService {
 		}
 		// [END send_multicast_error]
 	}
+	
+	
+	
 
 }
