@@ -4,7 +4,10 @@ import com.PocketCare.pocketCare.Exception.AuthorizationException;
 import com.PocketCare.pocketCare.Exception.ClientException;
 import com.PocketCare.pocketCare.Exception.CustomException;
 import com.PocketCare.pocketCare.Service.HealthAnalytics;
+import com.PocketCare.pocketCare.Service.IBMNotificationService;
 import com.PocketCare.pocketCare.Service.UserContactService;
+import com.PocketCare.pocketCare.model.DailyContactRequest;
+import com.PocketCare.pocketCare.model.NotifyDevicesRequest;
 
 import java.io.IOException;
 
@@ -28,6 +31,10 @@ public class AnalyticsController {
     
     @Autowired
     HealthAnalytics healthAnalytics;
+    
+    
+    @Autowired
+    IBMNotificationService notificationService;
 
     @RequestMapping(value = "/contactData", method = RequestMethod.GET)
     public ResponseEntity<?> getContactDataAnalytics(@RequestHeader("token") String token, @RequestParam(name = "startDate") Long startDate,
@@ -102,5 +109,20 @@ public class AnalyticsController {
 			return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+    
+    @RequestMapping(value = "/tracing/notify",method = RequestMethod.POST)
+    public ResponseEntity<?> saveContactDatav2(@RequestHeader("token") String token, @RequestBody NotifyDevicesRequest devices) {
+		try{
+			return new ResponseEntity<>(notificationService.sendNotifcation(devices.getDeviceIds()), HttpStatus.OK);
+		}
+		catch (Exception ex){
+			logger.error("Exception", ex);
+			return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	}
+    
+    
+    
+    
 
 }
