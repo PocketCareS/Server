@@ -1,8 +1,13 @@
 package com.PocketCare.pocketCare.DAO;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Objects;
+import java.util.Optional;
 
-import com.mongodb.client.result.UpdateResult;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +19,7 @@ import org.springframework.stereotype.Component;
 
 import com.PocketCare.pocketCare.Entities.UserData;
 import com.PocketCare.pocketCare.model.UserRegistrationResponse;
+import com.mongodb.client.result.UpdateResult;
 
 @Component
 public class UserDataDAO {
@@ -30,6 +36,14 @@ public class UserDataDAO {
 		return userDataRepository.findAll();
 	}
 
+	public UserData getUserDataByUserName(String userName){
+		return userDataRepository.findByUserName(userName);
+	}
+
+	public UserData getUserDataByDeviceId(String deviceId){
+		return userDataRepository.findByDeviceId(deviceId);
+	}
+
 	public Optional<UserData> getUserDataById(int id) {
 		return userDataRepository.findById(id);
 	}
@@ -43,6 +57,25 @@ public class UserDataDAO {
 		userRegistrationResponse.setToken(responseData.getAuthToken());
 		logger.debug("User Create", "returning");
 		return userRegistrationResponse;
+	}
+
+	public UpdateResult updateUserDataTokenAndExpiry(String deviceId, String token, Long expiryTime) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("deviceId").is(deviceId));
+		Update update = new Update();
+		update.set("authToken", token);
+		update.set("expiryTime", expiryTime);
+		return mongoTemplate.upsert(query, update, UserData.class);
+	}
+
+	public UpdateResult updateAdminDataUserNameAndPassword(String deviceId, String userName, String password) {
+		Query query = new Query();
+		query.addCriteria(Criteria.where("deviceId").is(deviceId));
+		Update update = new Update();
+		update.set("userName", userName);
+		update.set("password", password);
+		update.set("isAdmin",true);
+		return mongoTemplate.upsert(query, update, UserData.class);
 	}
 
 	public UserData getVbtNameByDeviceId(String deviceId) {

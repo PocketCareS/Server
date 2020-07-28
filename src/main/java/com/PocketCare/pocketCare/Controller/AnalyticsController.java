@@ -3,10 +3,13 @@ package com.PocketCare.pocketCare.Controller;
 import com.PocketCare.pocketCare.Exception.AuthorizationException;
 import com.PocketCare.pocketCare.Exception.ClientException;
 import com.PocketCare.pocketCare.Exception.CustomException;
+import com.PocketCare.pocketCare.Service.AdminService;
 import com.PocketCare.pocketCare.Service.HealthAnalytics;
 import com.PocketCare.pocketCare.Service.IBMNotificationService;
 import com.PocketCare.pocketCare.Service.UserContactService;
+import com.PocketCare.pocketCare.model.AdminDTO;
 import com.PocketCare.pocketCare.model.DailyContactRequest;
+import com.PocketCare.pocketCare.model.LoginDTO;
 import com.PocketCare.pocketCare.model.NotifyDevicesRequest;
 
 import java.io.IOException;
@@ -35,6 +38,9 @@ public class AnalyticsController {
     
     @Autowired
     IBMNotificationService notificationService;
+    
+    @Autowired
+    AdminService adminService;
 
     @RequestMapping(value = "/contactData", method = RequestMethod.GET)
     public ResponseEntity<?> getContactDataAnalytics(@RequestHeader("token") String token, @RequestParam(name = "startDate") Long startDate,
@@ -110,6 +116,30 @@ public class AnalyticsController {
 		}
 	}
     
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public ResponseEntity<?> isAdmin(@RequestBody LoginDTO loginDTO) {
+        try {
+            return new ResponseEntity<>(adminService.login(loginDTO.getUserName(), loginDTO.getPassword()), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Exception", e);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+
+    @RequestMapping(value = "/createAdmin", method = RequestMethod.POST)
+    public ResponseEntity<?> createAdmin(@RequestBody AdminDTO adminDTO) {
+        try {
+            return new ResponseEntity<>(adminService.createAdmin(adminDTO.getUserName(), adminDTO.getPassword(),
+                    adminDTO.getDeviceId()), HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+            logger.error("Exception", e);
+            return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
+        }
+    }
+    
     @RequestMapping(value = "/tracing/notify",method = RequestMethod.POST)
     public ResponseEntity<?> saveContactDatav2(@RequestHeader("token") String token, @RequestBody NotifyDevicesRequest devices) {
 		try{
@@ -120,5 +150,7 @@ public class AnalyticsController {
 			return new ResponseEntity<>(ex, HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+    
+    
  
 }
