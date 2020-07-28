@@ -9,5 +9,7 @@ public interface UserDataRepository extends MongoRepository<UserData, Integer> {
 	UserData findByVbtName(String vbtName);
 
 	UserData findByDeviceId(String deviceId);
+
+	UserData findByUserName(String userName);
 	
 }
