@@ -544,12 +544,23 @@ public class UserContactService {
 					if(contactTracingData.get(entry.getKey())==null){
 					    contactTracingResponse = new ContactTracingResponse();
 					    contactTracingResponse.setDate(userContactList.getContactListId().getDate());
-					    contactTracingResponse.setMaxContactDuration(contactVbtInfo.getCountTwo());
+					    contactTracingResponse.setTotalContactDuration(contactVbtInfo.getCountTwo());
 					    contactTracingResponse.setMaxContactDuration(contactVbtInfo.getCountTwo());
 					    contactTracingResponse.setEncounterCount(1);
+					    List<ContactTracingIndividualData> contactTracingIndividualDataList = new ArrayList<>();
+					    ContactTracingIndividualData contactTracingIndividualData = new ContactTracingIndividualData();
+					    contactTracingIndividualData.setDuration(contactVbtInfo.getCountTwo());
+					    contactTracingIndividualData.setDate(userContactList.getContactListId().getDate());
+					    contactTracingIndividualDataList.add(contactTracingIndividualData);
+					    contactTracingResponse.setContactInformation(contactTracingIndividualDataList);
                     }
 					else{
+						List<ContactTracingIndividualData> contactTracingIndividualDataList = contactTracingData.
+								get(entry.getKey()).getContactInformation();
 					    contactTracingResponse = contactTracingData.get(entry.getKey());
+					    ContactTracingIndividualData contactTracingIndividualData = new ContactTracingIndividualData();
+					    contactTracingIndividualData.setDate(userContactList.getContactListId().getDate());
+					    contactTracingIndividualData.setDuration(contactVbtInfo.getCountTwo());
 					    if(contactTracingResponse.getMaxContactDuration()<contactVbtInfo.getCountTwo()){
 					        contactTracingResponse.setMaxContactDuration(contactVbtInfo.getCountTwo());
 					        contactTracingResponse.setDate(userContactList.getContactListId().getDate());
@@ -558,6 +569,8 @@ public class UserContactService {
 					    contactTracingResponse.setTotalContactDuration(duration);
 					    Integer encounter = contactTracingResponse.getEncounterCount();
 					    contactTracingResponse.setEncounterCount(encounter+1);
+					    contactTracingIndividualDataList.add(contactTracingIndividualData);
+					    contactTracingResponse.setContactInformation(contactTracingIndividualDataList);
                     }
 					contactTracingData.put((String)entry.getKey(),contactTracingResponse);
 				}
