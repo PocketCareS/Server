@@ -29,11 +29,11 @@ import com.ibm.mobilefirstplatform.serversdk.java.push.Target;
 public class IBMNotificationService {
 
 	private static final Logger logger = LogManager.getLogger(UserDataDAO.class);
-	private static final String notificationMessage = "You have probably been exposed to COVID positive person. Please visit cdc website and watch your symptoms.";
+	private static final String notificationMessage = "You may have been exposed to COVID-19 virus. Please follow these instructions as per https://www.cdc.gov/coronavirus/2019-nCoV/index.html";
 	private static final String notificationURL = "https://www.cdc.gov/coronavirus/2019-nCoV/index.html";
-	private static final String notificationTitle = "PocketCare S tracing notification";
-	private static final String notificationSubTitle = "you have been exposed.";
-	private static final String bigTextNotification = "You have probably been exposed to COVID positive person. Please visit cdc website and watch your symptoms. url: https://www.cdc.gov/coronavirus/2019-nCoV/index.html";
+	private static final String notificationTitle = "Important Notification";
+	private static final String notificationSubTitle = "You have been exposed.";
+	private static final String bigTextNotification = "You have been identified as close contact with a COVID-19 patient. Please follow these instructions as per https://www.cdc.gov/coronavirus/2019-nCoV/index.html";
 	private static final String overrideHost= "https://imfpush.ng.bluemix.net";
 	private static final String APIID= "2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6";
 	private static final String APIKEY = "Bgb_bR-Wm_xW_wiYjRNXloRVKW-9TNUUeZgMkz_s-RIk";
