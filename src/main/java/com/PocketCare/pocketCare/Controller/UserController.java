@@ -16,7 +16,7 @@ import com.PocketCare.pocketCare.Exception.CustomException;
 import com.PocketCare.pocketCare.Service.NotificationService;
 import com.PocketCare.pocketCare.Service.UserService;
 import com.PocketCare.pocketCare.Service.UserSymptomsService;
-import com.PocketCare.pocketCare.config.FirebaseConfig;
+
 import com.PocketCare.pocketCare.model.UserInformationRequest;
 import com.PocketCare.pocketCare.model.UserRegistrationRequest;
 import com.PocketCare.pocketCare.model.UserSymptomsRequest;
@@ -36,8 +36,6 @@ public class UserController {
 	@Autowired
 	NotificationService notify;
 	
-	@Autowired
-	FirebaseConfig firebase;
 	
 	@Autowired
 	UserSymptomsService userSymptomsService;
@@ -48,7 +46,7 @@ public class UserController {
 	//@RequestMapping(value = "/notify", method = RequestMethod.GET)
 	public ResponseEntity<?> tempfireNotification() {
 		//TODO it's a temporary controller to test push notification
-		firebase.firebaseInit();
+		//firebase.firebaseInit();
 		logger.debug("Inside try");
 		return ResponseEntity.ok(notify.sendType1Notification());
 	}
