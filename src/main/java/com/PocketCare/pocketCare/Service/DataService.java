@@ -54,21 +54,4 @@ public class DataService {
 		throw new ClientException();
 	}
 
-	public DataUploadResponse saveLocation(String token, DataUploadRequest dataToUpload) throws CustomException {
-		UserData user = userService.verifyToken(token);
-		if(user == null) {
-			throw new AuthorizationException();
-		}
-		logger.debug("saveLocation: Token Verified successfully. Saving Location. ");
-
-		if (dataToUpload.getLocation() != null && !dataToUpload.getLocation().isEmpty()) {
-			dataDao.saveLocation(user.getDeviceId(), dataToUpload.getLocation());
-			logger.debug("saveLocation: Successfully saved location.");
-			return new DataUploadResponse(AppConstants.UPLOADSUCCESS, AppConstants.SUCCESS);
-		} else {
-			logger.debug("saveLocation: Location provided is null. Raising Client Exception.");
-			throw new ClientException();
-		}
-	}
-
 }
