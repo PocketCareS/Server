@@ -13,7 +13,7 @@ public final class AppConstants {
 	public static final int ERROR = -1;
 	public static final long NUMBER_OF_MILLIS_IN_A_DAY = 86400000;//(long)24*60*60*1000;
 	public static final long NUMBER_OF_MILLIS_IN_A_HOUR = (long)60*60*1000;
-	public static final int TRACING_DAYS = 15;
+	public static final int TRACING_DAYS = 14;
 	public static final String TYPE1TITLE = "Type 1 Notification";
 	public static final String TYPE1BODY = "Type 1 Body";
 	public static final String TYPE2TITLE = "Type 2 Notification";
