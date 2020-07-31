@@ -31,7 +31,7 @@ PocketCare S is designed to report social distance information without collectin
 ## Getting Started 
 
 ## High Level 
-![High Level Diagram](assests/22.jpg)
+![High Level Diagram](assets/22.jpg)
 
 ### API Documentation
 [Postman Documentation Link](https://documenter.getpostman.com/view/3639058/T1DtdFNp?version=latest)
