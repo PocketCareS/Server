@@ -52,8 +52,8 @@ Before you begin, make sure you satisfy the following requirements in order to r
 6. Right-click on the project and run as spring boot app
 7. Now you must see the project running on the server.
 8. Get the IP address of your system.
-9. Access the URL \&lt;ip\&gt;:8080/user/sample. If it prints &quot;Hello World&quot; Then the server is up and running.
-10. Update the file src\&gt;main\&gt;resources\&gt;application.properties file
+9. Access the URL ```<ip>:8080/user/sample. If it prints "Hello World" ```Then the server is up and running.
+10. Update the file ```src\main\resources\application.properties``` file
 11. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
 
 #### Steps to configure MongoDB database on IBM Openshift
@@ -75,18 +75,18 @@ Before you begin, make sure you satisfy the following requirements in order to r
 
 ![](RackMultipart20200731-4-1p1bw0t_html_21902662e644d7e1.png)
 
-9. Navigate to the Developer\&gt;Topology on the left pane.
-10. Select the mongodb icon on the screen.
-11. On the window pop on right select services.
-12. From the service menu, select the Cluster IP that appears at the position marked in the image below.
+1. Navigate to the Developer > Topology on the left pane.
+2.  Select the mongodb icon on the screen.
+3.  On the window pop on right select services.
+4.  From the service menu, select the Cluster IP that appears at the position marked in the image below.
 
 ![](RackMultipart20200731-4-1p1bw0t_html_e62720c129b0c859.png)
 
 13. Open the server application on your system.
-14. Open the src\&gt;main\&gt;resources\&gt;application.properties file
-15. #mongodb://\&lt;db-username\&gt;:\&lt;db-password\&gt;@\&lt;db-ip\&gt;:\&lt;db-port\&gt;/${spring.data.mongodb.name}
+14. Open the src\main\resources\application.properties file
+15. ```#mongodb://<db-username>:<db-password>@<db-ip>:<db-port>/${spring.data.mongodb.name}```
 16. Mention the username, password.
-17. Mention the cluster IP in place of \&lt;db-ip\&gt;
+17. Mention the cluster IP in place of ```<db-ip>```
 18. By default dbport is 27017. If not, mention the customised port in place of db-port
 
 
@@ -99,7 +99,7 @@ Before you begin, make sure you satisfy the following requirements in order to r
 
 ![](RackMultipart20200731-4-1p1bw0t_html_1c309bffeda063cd.png)
 
-2. Open the redshift cloud console: Dashboard \&gt; Clusters \&gt; open cluster \&gt; openshift web console
+1. Open the redshift cloud console: Dashboard >Clusters >open cluster > openshift web console
 
 ![](RackMultipart20200731-4-1p1bw0t_html_ff69cd97a6fb4dde.png)
 
@@ -126,11 +126,11 @@ The link in this section is your newly deployed spring-boot application.
 ![](RackMultipart20200731-4-1p1bw0t_html_458b2837319d95fb.png)
 
 11. Get the IP address of your system.
-12. Access the URL \&lt;ip\&gt;/user/sample. If it prints &quot;Hello World&quot; Then the server is up and running.
+12. Access the URL ```<ip\>/user/sample. If it prints "Hello World"``` Then the server is up and running.
 13. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
-14. If on the deployment logs the SERVER\_PORT issue appears. Navigate to the
+14. If on the deployment logs the SERVER_PORT issue appears. Navigate to the
 
-Environment variables of the POD and enter the variable name as SERVER\_PORT and value as 8080
+Environment variables of the POD and enter the variable name as SERVER_PORT and value as 8080
 
 ![](RackMultipart20200731-4-1p1bw0t_html_eefe4fbabbab52ef.png)
 
@@ -139,7 +139,7 @@ Environment variables of the POD and enter the variable name as SERVER\_PORT and
 
 1. For the IBM openshift.
 2. Open the openshift web console.
-3. Navigate to Developer\&gt;Topology
+3. Navigate to Developer>Topology
 4. Click on Server.
 5. On the right window, select start build.
 
