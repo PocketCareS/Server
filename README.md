@@ -62,7 +62,7 @@ Once the application starts, follow the on-boarding process and read how P works
 
 ### Detailed Architecture 
 
-![Working](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS_Design_Technical.png)
+![Working](https://github.com/PocketCareS/PocketCareS-iOS/blob/master/assets/PocketCareS_Design_Technical.png)
 
 ### Technological Advances
 
