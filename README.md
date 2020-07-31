@@ -23,13 +23,15 @@ PocketCare S is designed to report social distance information without collectin
 ## Demo Video 
 
 [![Demo](http://img.youtube.com/vi/JnOWwagUgxQ/0.jpg)](http://www.youtube.com/watch?v=JnOWwagUgxQ "PocketCare S Demo")
- 
- 
+
 ## The Architecture
 
 ![Architecture](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS_Design_Simplified.png)
 
 ## Getting Started 
+
+## High Level 
+![High Level Diagram](assests/22.jpg)
 
 ### API Documentation
 [Postman Documentation Link](https://documenter.getpostman.com/view/3639058/T1DtdFNp?version=latest)
