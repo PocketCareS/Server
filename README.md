@@ -72,29 +72,4 @@ Once the application starts, follow the on-boarding process and read how P works
 
 ![Security](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS-Privacy.png)
 
-For a more detailed description, refer to [further reading](#further-readings) section. 
-
-
-## Built With 
-
-In this submission, we have used IBM’s Cloud **Red Hat OpenShift** to deploy our server (using **OpenJDK 8**), database (using **MongoDB**), the web portal (using **Node Js server**) and **IBM Push notification service** from **IBM Bluemix** in the android application of PocketCare S as a proof of concept. In the future, we will consider integrating other IBM services into the PocketCare S solution.
-
-## Project RoadMap 
-
-## Further Readings
-
-You can find more information about PocketCare S here:
-
-1. [Website](https://engineering.buffalo.edu/computer-science-engineering/pocketcares.html) 
-2. [White Paper](https://docs.google.com/document/d/e/2PACX-1vT6UqA3HByzG5Di576gmz-JWzgKOFx5KLYGgJMpxcmWkOXYJ_vUFz2h1w2LnDNWI4y-xnyKhPi_s70p/pub)
-
-## License 
-
-This project is licensed under the Apache 2 License - see the [LICENSE](https://github.com/PocketCareS/server/blob/master/LICENSE) file for details
-
-## Acknowledgements
-Special thanks to all who helped bring the project to fruition:
-
-Sourav Samanta, Rishabh Joshi, Jeetendra Gan, Shanelle Ileto, Aritra Paul, Dr. Peter Winkelstein, Dr. Matthew R. Bonner, Kevin Wang, Chen Yuan, Dheeraj Bhatia, Latheeshwarraj Mohanraj, Dr. Wen Dong, Dr. Tong Guan, Dr. Marina Blanton, Sasha Shapiro, Stephen Fung
-
-And our deepest gratitude for the support of University at Buffalo.
+https://github.com/PocketCareS/PocketCareS-Android/blob/development
