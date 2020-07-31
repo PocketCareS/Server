@@ -48,14 +48,14 @@ Before you begin, make sure you satisfy the following requirements in order to r
 1. Clone the repository
 2. Make sure the MongoDB server is up and running.
 3. Open the project in the spring tool suite IDE
-4. Configure the MongoDB server Credentials [reference]
-5. Configure the IBM push Notification credentials [reference]
+4. Configure the MongoDB server Credentials (if provided)
+5. Configure the IBM push Notification credentials [reference](https://github.com/PocketCareS/server/blob/master/README.md#ibm-push-notification-java-sdk-setup)
 6. Right-click on the project and run as spring boot app
 7. Now you must see the project running on the server.
 8. Get the IP address of your system.
 9. Access the URL ```<ip>:8080/user/sample. If it prints "Hello World" ```Then the server is up and running.
 10. Update the file ```src\main\resources\application.properties``` file
-11. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
+11. Configure the IP address in the Android [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#running-pocketcare-s-using-android-studio), iOS [reference](https://github.com/PocketCareS/PocketCareS-iOS#installing-pocketcare-s-using-xcode) and web portal[reference](https://github.com/PocketCareS/webportal/blob/master/README.md#steps-for-running-on-local-system).
 
 #### Steps to configure MongoDB database on IBM Openshift
 
@@ -158,6 +158,8 @@ Environment variables of the POD and enter the variable name as SERVER_PORT and 
 3. Configure the service instance following the link as : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_2](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_2)
 
 4. Setup the client SDK : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_3](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_3)
+
+5. Android setup [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#getting-app-client-id-for-exposure-notification)
 
 ##### IBM Push Notification JAVA SDK setup
 
