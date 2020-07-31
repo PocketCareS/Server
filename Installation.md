@@ -40,7 +40,7 @@ Before you begin, make sure you satisfy the following requirements in order to r
 7. Let all other options be as is.
 8. Drag to the bottom and select create.
 
-![](assets/11.png)
+![](assets/25.png)
 
 1. Navigate to the Developer > Topology on the left pane.
 2.  Select the mongodb icon on the screen.
