@@ -1,5 +1,5 @@
 
-#Installation Guide - Server
+# Installation Guide - Server
 ### Prerequisites for installation on local machine
 
 Before you begin, make sure you satisfy the following requirements in order to run the server on your local system:
