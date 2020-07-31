@@ -1,3 +1,19 @@
+/*
+ * Copyright 2020 University at Buffalo
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
 package com.PocketCare.pocketCare.Service;
 
 import java.util.Collection;
@@ -47,18 +63,15 @@ public class UserService {
 		if (fetchedUserData != null) {
 			// TODO make sure whatever the new parameters added should be set here too. Or
 			// refactor the code.
-			logger.debug("createUserData: DeviceId: " + userData.getDeviceId()
-					+ " already exists. Fetching VBTName from database");
+			logger.debug("createUserData: DeviceId already exists. Fetching VBTName from database");
 			updateExpiryTimeAndSave(fetchedUserData);
 			UserRegistrationResponse userRegistrationResponse = new UserRegistrationResponse();
 			userRegistrationResponse.setToken(fetchedUserData.getAuthToken());
 
-			logger.debug("createUserData: Returning generated authToken for deviceId: " + userData.getDeviceId());
 			return userRegistrationResponse;
 		}
 
 		userData = generateTokenAndSetExpiryTime(userData);
-		logger.debug("createUserData: Returning generated authToken for deviceId: " + userData.getDeviceId());
 		return userDataDAO.createUserData(userData);
 	}
 
@@ -73,10 +86,10 @@ public class UserService {
 		String randString = AppUtils. getRandomString(AppConstants.RANDSTRINGLEN);
 		String vbtName = AppConstants.VBTPREFIX.concat(randString);
 		if (isUnique(vbtName)) {
-			logger.debug("getUniqueVbtName: Generated VBTName: " + vbtName);
+			logger.debug("getUniqueVbtName: Generated VBTName");
 			return vbtName;
 		} else {
-			logger.debug("getUniqueVbtName: VBTName generated: " + vbtName + " is not unique. Regenerating.");
+			logger.debug("getUniqueVbtName: VBTName generated is not unique. Regenerating.");
 			return getUniqueVbtName();
 		}
 	}
@@ -87,15 +100,15 @@ public class UserService {
 	}
 
 	private UserData checkIfDeviceIdExists(String deviceId) {
-		logger.debug("checkIfDeviceIdExists: Checking if DeviceId: " + deviceId + " exists in database");
+		logger.debug("checkIfDeviceIdExists: Checking if DeviceId exists in database");
 		return userDataRepository.findByDeviceId(deviceId);
 	}
 
 	private UserData getVbtNameForDeviceId(String deviceId) {
-		logger.debug("getVbtNameForDeviceId: Fetching VBTName for DeviceId: " + deviceId + " from the database");
+		logger.debug("getVbtNameForDeviceId: Fetching VBTName for DeviceId from the database");
 		UserData userData = userDataDAO.getVbtNameByDeviceId(deviceId);
 		logger.debug(
-				"getVbtNameForDeviceId: VBTName returned for DeviceId: " + deviceId + " : " + userData.getVbtName());
+				"getVbtNameForDeviceId: VBTName returned for DeviceId");
 		return userData;
 	}
 
@@ -108,7 +121,7 @@ public class UserService {
 	}
 
 	public void updateExpiryTimeAndSave(UserData userData) {
-		logger.debug("updateExpiryTime: Updating expiry time for user with deviceId: " + userData.getDeviceId());
+		logger.debug("updateExpiryTime: Updating expiry time for user with deviceId");
 		userData = this.generateTokenAndSetExpiryTime(userData);
 		logger.debug("updateExpiryTime: Returning userData after setting expiry time");
 		saveUser(userData);
@@ -126,8 +139,7 @@ public class UserService {
 	}
 
 	public UserData generateTokenAndSetExpiryTime(UserData userData) {
-		logger.debug("generateTokenAndSetExpiryTime: Generating token and setting expiry for user with deviceId: "
-				+ userData.getDeviceId());
+		logger.debug("generateTokenAndSetExpiryTime: Generating token and setting expiry for user with deviceId");
 		String token = AppUtils.getRandomString(AppConstants.TOKENSTRINGLENGTH);
 		Date date = new Date();
 		Long longDate = (date.getTime() + TimeUnit.MINUTES.toMillis(AppConstants.TOKENEXPIRYTIME));
@@ -135,7 +147,7 @@ public class UserService {
 		userData.setExpiryTime(longDate);
 //		userData = userDataRepository.insert(userData);
 		logger.debug(
-				"generateTokenAndSetExpiryTime: Returning token for user with deviceId: " + userData.getDeviceId());
+				"generateTokenAndSetExpiryTime: Returning token for user with deviceId");
 		return userData;
 	}
 
