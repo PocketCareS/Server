@@ -61,26 +61,26 @@ Before you begin, make sure you satisfy the following requirements in order to r
 1. Open the redshift console
 2. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu.
 
-![](RackMultipart20200731-4-1p1bw0t_html_db3fb2d45b671fcf.png)
+![](assets/8.png)
 
 3. On screen select Database.
 4. From the options displayed on the screen. Select the database as MongoDB service with persistent storage.
 
-![](RackMultipart20200731-4-1p1bw0t_html_bd934cf42260985e.png)
+![](assets/10.png)
 
 5. Select the DB name as &quot;pocketCare&quot;
 6. provide the credentials as required. Remember the credentials as these will be required in configuring the server.
 7. Let all other options be as is.
 8. Drag to the bottom and select create.
 
-![](RackMultipart20200731-4-1p1bw0t_html_21902662e644d7e1.png)
+![](assets/11.png)
 
 1. Navigate to the Developer > Topology on the left pane.
 2.  Select the mongodb icon on the screen.
 3.  On the window pop on right select services.
 4.  From the service menu, select the Cluster IP that appears at the position marked in the image below.
 
-![](RackMultipart20200731-4-1p1bw0t_html_e62720c129b0c859.png)
+![](assets/20.png)
 
 13. Open the server application on your system.
 14. Open the src\main\resources\application.properties file
@@ -95,35 +95,38 @@ Before you begin, make sure you satisfy the following requirements in order to r
 
 1. Get a RedHat openshift device on IBM cloud with the configuration of your choice.
 
-![](RackMultipart20200731-4-1p1bw0t_html_dbf4a1870a6845c2.png)
+![](assets/15.png)
 
-![](RackMultipart20200731-4-1p1bw0t_html_1c309bffeda063cd.png)
+![](assets/16.png)
 
 1. Open the redshift cloud console: Dashboard >Clusters >open cluster > openshift web console
 
-![](RackMultipart20200731-4-1p1bw0t_html_ff69cd97a6fb4dde.png)
+![](assets/17.png)
 
-3. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu. ![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
+3. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu. ![](assets/3.png)
 4. On the screen that loads, click on From Git.
 
-![](RackMultipart20200731-4-1p1bw0t_html_2d00f721eaf2d28e.png)
+![](assets/4.png)
+![](assets/5.png)
 
 5. In the Git Repo URL section, paste the link &quot; **https://github.com/PocketCareS/server**&quot; from the Github repository.
 
 Note: Click on More Advanced Options to specify the branch name(if-any). By default, the branch is master and we do not need to specify it.
 
-6. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. ![](RackMultipart20200731-4-1p1bw0t_html_7d48a7a733b4dd62.png)
+6. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. ![](assets/5.png)
 7. Let other options be as they are, no fiddling with them. Just make sure that the checkbox in the Advanced Options section is checked as shown in the image below and then click on Create.
 8. Click on the penguin logo on the screen. We can see that a build is already in progress. Keep a little patience and wait for the build to finish.
 9. As soon as the build is finished, a pod will automatically be deployed. Congratulations, you have successfully deployed your spring-boot application on Redhat Openshift nonchalantly.
 
-![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
+![](assets/5.png)
 
 10. To get the URL go under the Routes section.
 
+![](assets/7.png)
+
 The link in this section is your newly deployed spring-boot application.
 
-![](RackMultipart20200731-4-1p1bw0t_html_458b2837319d95fb.png)
+![](assets/3.png)
 
 11. Get the IP address of your system.
 12. Access the URL ```<ip\>/user/sample. If it prints "Hello World"``` Then the server is up and running.
@@ -132,7 +135,7 @@ The link in this section is your newly deployed spring-boot application.
 
 Environment variables of the POD and enter the variable name as SERVER_PORT and value as 8080
 
-![](RackMultipart20200731-4-1p1bw0t_html_eefe4fbabbab52ef.png)
+![](assets/19.png)
 
 
 #### Deploy the server changes on the server.
@@ -143,7 +146,7 @@ Environment variables of the POD and enter the variable name as SERVER_PORT and 
 4. Click on Server.
 5. On the right window, select start build.
 
-![](RackMultipart20200731-4-1p1bw0t_html_3d46aac11680b657.png)
+![](assets/21.png)
 
 #### IBM Push Notification
 
@@ -154,6 +157,23 @@ Environment variables of the POD and enter the variable name as SERVER_PORT and 
 3. Configure the service instance following the link as : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_2](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_2)
 
 4. Setup the client SDK : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_3](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_3)
+
+##### IBM Push Notification JAVA SDK setup
+
+1. Setup the JAVA SDK service.
+2. Got to your IBM push notification service. [link](https://cloud.ibm.com/services/imfpush/crn%3Av1%3Abluemix%3Apublic%3Aimfpush%3Aus-south%3Aa%2F446673b322a041c3852f5abaf675bae9%3A2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6%3A%3A?paneId=credentials)
+ 3. On the image given below. **Select Service Credentials** from left pane.
+ 4. Create new credentials if not already.
+
+![](assets/1.png)
+
+  1. Open the JAVA server application code on the IDE (sts)
+  2. Navigate to the Class **src/main/java/com/PocketCare/pocketCare/Service/IBMNotificationService.java**
+  3. Copy the appGuid from IBM console and paste at 
+  ```Java private static final String **APIID= "YOUR IBM push notification APP ID";```
+  4. Copy the apikey from IBM console and paste at 
+  ```Java private static final String **APIKEY = "Your IBM push notifcation API KEY";```
+  5. Build the server application on local or cloud console.
 
 Once the application starts, follow the on-boarding process and read how P works below. 
 
@@ -176,7 +196,7 @@ Once the application starts, follow the on-boarding process and read how P works
 
 ### Security and Privacy 
 
-![Security](PocketCareS-Privacy.png)
+![Security](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS-Privacy.png)
 
 For a more detailed description, refer to [further reading](#further-readings) section. 
 
