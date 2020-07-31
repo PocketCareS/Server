@@ -30,7 +30,7 @@ PocketCare S is designed to report social distance information without collectin
 
 ## Getting Started 
 
-### High Level 
+### High Level Architecture
 ![High Level Diagram](assets/22.jpg)
 
 ### API Documentation
