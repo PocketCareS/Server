@@ -1,6 +1,6 @@
 # PocketCare S - Server
 
-<img src="logo.png" width="300">
+<img src="https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/logo.png" width="300">
 
 **Call for code submission for COVID-19 track.**
 
@@ -27,7 +27,7 @@ PocketCare S is designed to report social distance information without collectin
  
 ## The Architecture
 
-![Architecture](PocketCareS_Design_Simplified.png)
+![Architecture](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS_Design_Simplified.png)
 
 ## Getting Started 
 
@@ -168,11 +168,11 @@ Once the application starts, follow the on-boarding process and read how P works
 
 ### Detailed Architecture 
 
-![Working](PocketCareS_Design_Technical.png)
+![Working](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCareS_Design_Technical.png)
 
 ### Technological Advances
 
-![Tech](PocketCareS-TechAdvances.png)
+![Tech](https://github.com/PocketCareS/PocketCareS-Android/blob/development/assets/PocketCare_S_Road_Map.png)
 
 ### Security and Privacy 
 
