@@ -1,4 +1,4 @@
-# PocketCare S - Android
+# PocketCare S - Server
 
 <img src="logo.png" width="300">
 
