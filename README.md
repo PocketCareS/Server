@@ -1,68 +1,60 @@
-# server
-https://documenter.getpostman.com/view/3639058/T1DtdFNp?version=latest
+# PocketCare S - Android
 
-# Running the Server
+<img src="logo.png" width="300">
 
-### On a local system
+**Call for code submission for COVID-19 track.**
+
+PocketCare S is a comprehensive smartphone-based solution for monitoring close encounters. It is a bluetooth low energy (BLE) based solution which enables smartphones to send and receive anonymous beacon signals. It checks the distance between a smartphone and another beacon (or smartphone running PocketCare S) to see if they are close to each other (less than 2m). If so, the smartphone records the duration of such a close encounter with another beacon. 
+
+PocketCare S is designed to report social distance information without collecting or revealing any personally identifiable information about any specific individual.
+
+
+## Contents 
+1. [Demo Video](#demo-video) 
+2. [The Architecture](#the-architecture)
+3. [Getting Started](#getting-started)
+4. [How does PocketCare S Work?](#how-does-pocketcare-s-work)
+5. [Built With](#built-with)
+6. [Project RoadMap](#project-roadmap)
+7. [Further Readings](#further-readings)
+8. [License](#license)
+9. [Acknowledgments](#acknowledgements)
+
+## Demo Video 
+
+[![Demo](http://img.youtube.com/vi/JnOWwagUgxQ/0.jpg)](http://www.youtube.com/watch?v=JnOWwagUgxQ "PocketCare S Demo")
+ 
+ 
+## The Architecture
+
+![Architecture](PocketCareS_Design_Simplified.png)
+
+## Getting Started 
+
+**Due to emulators not supporting bluetooth, close encounter detection will not work on emulators.**
+
+### Prerequisites for installation on local machine
+
+Before you begin, make sure you satisfy the following requirements in order to run the server on your local system:
+
+1. Spring Tool Suite latest version.
+2. MongoDB Server setup on your local system. [Link](https://www.mongodb.com/try/download/community)
+3. JAVA 8 or above installed on the system.
+4. NPM (node package manager) which can be installed from [here](https://nodejs.org/en/download/)
+
+### Steps to install server on local system
 
 1. Clone the repository
-2. Download spring tool suite on your system using the link https://spring.io/tools
-3. Download Mongo DB on your system using link https://www.mongodb.com/try/download/community
-4. Once the Mongo DB server is up and IDE is downloaded.
-5. Open the project on the IDE.
+2. Make sure the MongoDB server is up and running.
+3. Open the project in the spring tool suite IDE
+4. Configure the MongoDB server Credentials [reference]
+5. Configure the IBM push Notification credentials [reference]
 6. Right-click on the project and run as spring boot app
 7. Now you must see the project running on the server.
 8. Get the IP address of your system.
 9. Access the URL \&lt;ip\&gt;:8080/user/sample. If it prints &quot;Hello World&quot; Then the server is up and running.
 10. Update the file src\&gt;main\&gt;resources\&gt;application.properties file
-11. Update the **spring.data.mongodb.uri = mongodb://localhost:27017/${spring.data.mongodb.name}**
-12. Configure the IP address in the Mobile applications and web portal at the location described in the instructions at the main/respective repository.
-
-### On IBM Cloud
-
-1. Steps to run the bootstrap application on the IBM Cloud
-  1. Get a RedHat openshift device on IBM cloud with the configuration of your choice.
-
-![](RackMultipart20200731-4-1p1bw0t_html_dbf4a1870a6845c2.png)
-
-![](RackMultipart20200731-4-1p1bw0t_html_1c309bffeda063cd.png)
-
-  1. Open the redshift cloud console: Dashboard \&gt; Clusters \&gt; open cluster \&gt; openshift web console
-
-![](RackMultipart20200731-4-1p1bw0t_html_ff69cd97a6fb4dde.png)
-
-  1.
-
-  1. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu. ![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
-  2. On the screen that loads, click on From Git.
-
-![](RackMultipart20200731-4-1p1bw0t_html_2d00f721eaf2d28e.png)
-
-  1. In the Git Repo URL section, paste the link &quot; **https://github.com/PocketCareS/server**&quot; from the Github repository.
-
-Note: Click on More Advanced Options to specify the branch name(if-any). By default, the branch is master and we do not need to specify it.
-
-1. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. ![](RackMultipart20200731-4-1p1bw0t_html_7d48a7a733b4dd62.png)
-2. Let other options be as they are, no fiddling with them. Just make sure that the checkbox in the Advanced Options section is checked as shown in the image below and then click on Create.
-3. Click on the penguin logo on the screen. We can see that a build is already in progress. Keep a little patience and wait for the build to finish.
-4. As soon as the build is finished, a pod will automatically be deployed. Congratulations, you have successfully deployed your spring-boot application on Redhat Openshift nonchalantly.
-
-![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
-
-1. To get the URL go under the Routes section.
-
-The link in this section is your newly deployed spring-boot application.
-
-![](RackMultipart20200731-4-1p1bw0t_html_458b2837319d95fb.png)
-
-1. Get the IP address of your system.
-2. Access the URL \&lt;ip\&gt;/user/sample. If it prints &quot;Hello World&quot; Then the server is up and running.
-3. Configure the IP address in the Mobile applications and webportal at the location described in the instructions at the main/respective repository.
-4. If on the deployment logs the SERVER\_PORT issue appears. Navigate to the
-
-Environment variables of the POD and enter the variable name as SERVER\_PORT and value as 8080
-
-![](RackMultipart20200731-4-1p1bw0t_html_eefe4fbabbab52ef.png)
+11. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
 
 #### Steps to configure MongoDB database on IBM Openshift
 
@@ -71,31 +63,77 @@ Environment variables of the POD and enter the variable name as SERVER\_PORT and
 
 ![](RackMultipart20200731-4-1p1bw0t_html_db3fb2d45b671fcf.png)
 
-1. On screen select Database.
-2. From the options displayed on the screen. Select the database as MongoDB service with persistent storage.
+3. On screen select Database.
+4. From the options displayed on the screen. Select the database as MongoDB service with persistent storage.
 
 ![](RackMultipart20200731-4-1p1bw0t_html_bd934cf42260985e.png)
 
-1. Select the DB name as &quot;pocketCare&quot;
-2. provide the credentials as required. Remember the credentials as these will be required in configuring the server.
-3. Let all other options be as is.
-4. Drag to the bottom and select create.
+5. Select the DB name as &quot;pocketCare&quot;
+6. provide the credentials as required. Remember the credentials as these will be required in configuring the server.
+7. Let all other options be as is.
+8. Drag to the bottom and select create.
 
 ![](RackMultipart20200731-4-1p1bw0t_html_21902662e644d7e1.png)
 
-1. Navigate to the Developer\&gt;Topology on the left pane.
-2. Select the mongodb icon on the screen.
-3. On the window pop on right select services.
-4. From the service menu, select the Cluster IP that appears at the position marked in the image below.
+9. Navigate to the Developer\&gt;Topology on the left pane.
+10. Select the mongodb icon on the screen.
+11. On the window pop on right select services.
+12. From the service menu, select the Cluster IP that appears at the position marked in the image below.
 
 ![](RackMultipart20200731-4-1p1bw0t_html_e62720c129b0c859.png)
 
-1. Open the server application on your system.
-2. Open the src\&gt;main\&gt;resources\&gt;application.properties file
-3. #mongodb://\&lt;db-username\&gt;:\&lt;db-password\&gt;@\&lt;db-ip\&gt;:\&lt;db-port\&gt;/${spring.data.mongodb.name}
-4. Mention the username, password.
-5. Mention the cluster IP in place of \&lt;db-ip\&gt;
-6. By default dbport is 27017. IF not, mention the customised port in place of db-port
+13. Open the server application on your system.
+14. Open the src\&gt;main\&gt;resources\&gt;application.properties file
+15. #mongodb://\&lt;db-username\&gt;:\&lt;db-password\&gt;@\&lt;db-ip\&gt;:\&lt;db-port\&gt;/${spring.data.mongodb.name}
+16. Mention the username, password.
+17. Mention the cluster IP in place of \&lt;db-ip\&gt;
+18. By default dbport is 27017. If not, mention the customised port in place of db-port
+
+
+### Steps to install server on IBM's cloud openshift 
+
+
+1. Get a RedHat openshift device on IBM cloud with the configuration of your choice.
+
+![](RackMultipart20200731-4-1p1bw0t_html_dbf4a1870a6845c2.png)
+
+![](RackMultipart20200731-4-1p1bw0t_html_1c309bffeda063cd.png)
+
+2. Open the redshift cloud console: Dashboard \&gt; Clusters \&gt; open cluster \&gt; openshift web console
+
+![](RackMultipart20200731-4-1p1bw0t_html_ff69cd97a6fb4dde.png)
+
+3. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu. ![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
+4. On the screen that loads, click on From Git.
+
+![](RackMultipart20200731-4-1p1bw0t_html_2d00f721eaf2d28e.png)
+
+5. In the Git Repo URL section, paste the link &quot; **https://github.com/PocketCareS/server**&quot; from the Github repository.
+
+Note: Click on More Advanced Options to specify the branch name(if-any). By default, the branch is master and we do not need to specify it.
+
+6. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. ![](RackMultipart20200731-4-1p1bw0t_html_7d48a7a733b4dd62.png)
+7. Let other options be as they are, no fiddling with them. Just make sure that the checkbox in the Advanced Options section is checked as shown in the image below and then click on Create.
+8. Click on the penguin logo on the screen. We can see that a build is already in progress. Keep a little patience and wait for the build to finish.
+9. As soon as the build is finished, a pod will automatically be deployed. Congratulations, you have successfully deployed your spring-boot application on Redhat Openshift nonchalantly.
+
+![](RackMultipart20200731-4-1p1bw0t_html_84ebe914834c887b.png)
+
+10. To get the URL go under the Routes section.
+
+The link in this section is your newly deployed spring-boot application.
+
+![](RackMultipart20200731-4-1p1bw0t_html_458b2837319d95fb.png)
+
+11. Get the IP address of your system.
+12. Access the URL \&lt;ip\&gt;/user/sample. If it prints &quot;Hello World&quot; Then the server is up and running.
+13. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
+14. If on the deployment logs the SERVER\_PORT issue appears. Navigate to the
+
+Environment variables of the POD and enter the variable name as SERVER\_PORT and value as 8080
+
+![](RackMultipart20200731-4-1p1bw0t_html_eefe4fbabbab52ef.png)
+
 
 #### Deploy the server changes on the server.
 
@@ -111,44 +149,53 @@ Environment variables of the POD and enter the variable name as SERVER\_PORT and
 
 1. Service instance for push notification: [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_1a](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_1a)
 
-1. Obtain notification service provider credentials for Android based on the steps mentioned in the link [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_1](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_1)
+2. Obtain notification service provider credentials for Android based on the steps mentioned in the link [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_1](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_1)
 
-1. Configure the service instance following the link as : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_2](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_2)
+3. Configure the service instance following the link as : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_2](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_2)
 
-1. Setup the client SDK : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_3](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_3)
+4. Setup the client SDK : [https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push\_step\_3](https://cloud.ibm.com/docs/mobilepush?topic=mobilepush-push_step_3)
 
-##### Things to change on Android
+Once the application starts, follow the on-boarding process and read how P works below. 
 
-1. Setup the JAVA SDK service.
-  1. Got to your IBM push notification service. [https://cloud.ibm.com/services/imfpush/crn%3Av1%3Abluemix%3Apublic%3Aimfpush%3Aus-south%3Aa%2F446673b322a041c3852f5abaf675bae9%3A2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6%3A%3A?paneId=credentials](https://cloud.ibm.com/services/imfpush/crn%3Av1%3Abluemix%3Apublic%3Aimfpush%3Aus-south%3Aa%2F446673b322a041c3852f5abaf675bae9%3A2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6%3A%3A?paneId=credentials)
-  2. On the image given below. Select &#39;Service Credentials&#39; from left pane.
-  3. Create new credentials if not already.
+## How does PocketCare S Work?
 
-![](RackMultipart20200731-4-1p1bw0t_html_45f503c88ac01449.png)
+### Key Highlights (Mobile Application)
 
-  1. Open the JAVA server application code on the IDE (sts or intelli J)
-  2. Navigate to the Class src/main/java/com/PocketCare/pocketCare/Service/IBMNotificationService.java.
-  3. Copy the appGuid from IBM console and paste at private static final String **APIID= &quot;YOUR IBM push notification APP ID&quot;;**
-  4. Copy the apikey from IBM console and paste at private static final String **APIKEY = &quot;Your IBM push notifcation API KEY&quot;;**
-  5. Build the server application on local or cloud console.
+1. Close encounter data will be displayed in the mobile application after a close encounter session starts. A close encounter session starts when two people are within **2 meters** for at least **5 minutes**. 
+2. The **virtual bluetooth name** changes every hour to ensure **user privacy**. 
+3. Data upload to the server takes place every hour.
+4. Data is stored in user's phone for a maximum of 14 days. 
 
-### Installing the fronend application
+### Detailed Architecture 
 
-1. Install Visual Studio Code
-2. Install the Nodejs package on your system. https://nodejs.org/en/download/
-3. Clone the repository from the link : [https://github.com/PocketCareS/webportal](https://github.com/PocketCareS/webportal)
-4. run the following commands.
-  1. npm install
-  2. To run on local system run command \&gt; npm start
-  3. To deploy the application on openshift cloud
-  4. Install the OC cli on your system using the following [https://mirror.openshift.com/pub/openshift-v4/clients/oc/](https://mirror.openshift.com/pub/openshift-v4/clients/oc/)
-  5. Once installed.
-  6. Open the openshift console
-  7. Get the login command
-  8. ![](RackMultipart20200731-4-1p1bw0t_html_4695d32a90c2a8da.png)
-  9. Copy and paste the command in terminal at the folder where the react application source code resides.
-  10. Run\&gt; npm install
-  11. Run\&gt; npx nodeshift --strictSSL=false --dockerImage=nodeshift/ubi8-s2i-web-app --imageTag=10.x --build.env YARN\_ENABLED=true --expose
-  12. This will install the react application on the openshift and give the public url in the console.
+![Working](PocketCareS_Design_Technical.png)
+
+### Technological Advances
+
+![Tech](PocketCareS-TechAdvances.png)
+
+### Security and Privacy 
+
+![Security](PocketCareS-Privacy.png)
+
+For a more detailed description, refer to [further reading](#further-readings) section. 
 
 
+## Built With 
+
+In this submission, we have used IBM’s Cloud **Red Hat OpenShift** to deploy our server (using **OpenJDK 8**), database (using **MongoDB**), the web portal (using **Node Js server**) and **IBM Push notification service** from **IBM Bluemix** in the android application of PocketCare S as a proof of concept. In the future, we will consider integrating other IBM services into the PocketCare S solution.
+
+## Project RoadMap 
+
+## Further Readings
+
+You can find more information about PocketCare S here:
+
+1. [Website](https://engineering.buffalo.edu/computer-science-engineering/pocketcares.html) 
+2. [White Paper](https://docs.google.com/document/d/e/2PACX-1vT6UqA3HByzG5Di576gmz-JWzgKOFx5KLYGgJMpxcmWkOXYJ_vUFz2h1w2LnDNWI4y-xnyKhPi_s70p/pub)
+
+## License 
+
+This project is licensed under the Apache 2 License - see the LICENSE file for details
+
+## Acknowledgements
