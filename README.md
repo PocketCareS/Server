@@ -51,7 +51,7 @@ Before you begin, make sure you satisfy the following requirements in order to r
 
 ### Steps to install server 
 
-[Installation Guide](https://github.com/PocketCareS/server/blob/master/Installation.md)
+Read the [Installation Guide](https://github.com/PocketCareS/server/blob/master/Installation.md)
 
 Once the application starts, follow the on-boarding process and read how PocketCare S works below. 
 
