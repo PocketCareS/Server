@@ -20,9 +20,9 @@ PocketCare S is designed to report social distance information without collectin
 8. [License](#license)
 9. [Acknowledgments](#acknowledgements)
 
-## Demo Video 
+## Demo Video
 
-[![Demo](http://img.youtube.com/vi/JnOWwagUgxQ/0.jpg)](http://www.youtube.com/watch?v=JnOWwagUgxQ "PocketCare S Demo")
+[![Demo](https://github.com/PocketCareS/PocketCareS-iOS/blob/master/assets/Video%20Thumbnail.png)](https://youtu.be/JUTQIcdgXwc "PocketCare S Demo")
 
 ## The Architecture
 
@@ -71,9 +71,25 @@ Once the application starts, follow the on-boarding process and read how P works
 **For a more detailed description, refer to the [additional information](#additional-information) section.**
 
 
-## Built With 
+## Built With
 
-In this submission, we have used IBM’s Cloud **Red Hat OpenShift** to deploy our server (using **OpenJDK 8**), database (using **MongoDB**), the web portal (using **Node JS Server**) and **IBM Push Notification Service** from **IBM Cloud** in the Android application of PocketCare S as a proof of concept. In the future, we will be integrating other IBM services into the PocketCare S solution.
+### iOS
+- [BeaconMonitor](https://github.com/sebk/BeaconMonitor) - Used for close contact detection
+- [Charts](https://github.com/danielgindi/Charts) - Used to visualize data
+- [CryptoSwift](https://github.com/krzyzanowskim/CryptoSwift) - Used for encryption
+
+### Android 
+- [Android Beacon Library](https://altbeacon.github.io/android-beacon-library/) - Used for close contact detection
+- [High Charts](https://www.highcharts.com/) - Used to visualize data
+- [IBM Push Notifications](https://www.ibm.com/cloud/push-notifications) - Push Notification for Exposure 
+
+### Server 
+- [Red Hat OpenShift on IBM Cloud](https://www.ibm.com/cloud/openshift)
+  - Server using [OpenJDK 8](https://www.ibm.com/cloud/support-for-runtimes)
+  - Database using [MongoDB](https://www.ibm.com/cloud/databases-for-mongodb)
+  - Web Portal hosted using [Node JS Server](https://developer.ibm.com/node/cloud/)
+- [React](https://reactjs.org/) - Used to build the web portal 
+- [Spring Boot](https://spring.io/projects/spring-boot) - Framework for the Server
 
 ## Project Road Map 
 
