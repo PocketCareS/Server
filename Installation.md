@@ -18,10 +18,10 @@ Before you begin, make sure you satisfy the following requirements in order to r
 5. Configure the IBM push Notification credentials [reference](https://github.com/PocketCareS/server/blob/master/Installation.md#ibm-push-notification-java-sdk-setup)
 6. Right-click on the project folder (on IDE) and run as spring boot app
 7. Now you must see the project running on the server.
-8. Get the IP address of your system.
+8. Get the IP address of your system which will be ***SERVER_API_URL***
 9. Access the URL ```<ip>:8080/user/sample. If it prints "Hello World" ```Then the server is up and running.
 10. Update the file ```src\main\resources\application.properties``` file
-11. Configure the IP address in the Android [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#running-pocketcare-s-using-android-studio), iOS [reference](https://github.com/PocketCareS/PocketCareS-iOS#installing-pocketcare-s-using-xcode) and web portal [reference](https://github.com/PocketCareS/webportal/blob/master/README.md#steps-for-running-on-local-system).
+11. Configure the IP address in the Android [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#running-pocketcare-s-using-android-studio), iOS [reference](https://github.com/PocketCareS/PocketCareS-iOS#installing-pocketcare-s-using-xcode) and web portal [reference](https://github.com/PocketCareS/webportal/blob/master/README.md#running-the-application-on-local-system).
 
 #### Steps to configure MongoDB database on IBM Openshift
 
@@ -93,7 +93,7 @@ Note: Click on More Advanced Options to specify the branch name(if-any). By defa
 
 ![](assets/5.png)
 
-10. To get the URL go under the Routes section.
+10. To get the SERVER_API_URL go under the Routes section.
 
 ![](assets/7.png)
 
@@ -119,6 +119,30 @@ Environment variables of the POD and enter the variable name as SERVER_PORT and 
 5. On the right window, select start build.
 
 ![](assets/21.png)
+
+### Creating the credentials for webportal login
+1. Open the terminal
+2. Hit the following curl requests in order. Replace the ***<SERVER_API_URL>*** with your server hosted API URL.
+```java
+curl --location --request POST '<SERVER_API_URL>/user' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+	"deviceId":"DUMMY_DEVICE_ID"
+}'
+```
+
+```java
+curl --location --request POST '<SERVER_API_URL>/analytics/createAdmin' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "userName":"admin",
+    "password":"admin",
+    "deviceId":"DUMMY_DEVICE_ID"
+}'
+```
+3. UserName: **admin**
+   password: **admin**
+   which will be used while login in [web portal](https://github.com/PocketCareS/WebPortal/blob/master/WorkFlow.md#3-user-login).
 
 #### IBM Push Notification
 
