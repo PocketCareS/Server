@@ -14,75 +14,81 @@ Before you begin, make sure you satisfy the following requirements in order to r
 1. Clone the repository
 2. Make sure the MongoDB server is up and running.
 3. Open the project in the spring tool suite IDE
-4. Configure the MongoDB server Credentials (if provided)
-5. Configure the IBM push Notification credentials [reference](https://github.com/PocketCareS/server/blob/master/README.md#ibm-push-notification-java-sdk-setup)
-6. Right-click on the project and run as spring boot app
+4. Configure the MongoDB server Credentials (if provided while )
+5. Configure the IBM push Notification credentials [reference](https://github.com/PocketCareS/server/blob/master/Installation.md#ibm-push-notification-java-sdk-setup)
+6. Right-click on the project folder (on IDE) and run as spring boot app
 7. Now you must see the project running on the server.
 8. Get the IP address of your system.
 9. Access the URL ```<ip>:8080/user/sample. If it prints "Hello World" ```Then the server is up and running.
 10. Update the file ```src\main\resources\application.properties``` file
-11. Configure the IP address in the Android [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#running-pocketcare-s-using-android-studio), iOS [reference](https://github.com/PocketCareS/PocketCareS-iOS#installing-pocketcare-s-using-xcode) and web portal[reference](https://github.com/PocketCareS/webportal/blob/master/README.md#steps-for-running-on-local-system).
+11. Configure the IP address in the Android [reference](https://github.com/PocketCareS/PocketCareS-Android/tree/development#running-pocketcare-s-using-android-studio), iOS [reference](https://github.com/PocketCareS/PocketCareS-iOS#installing-pocketcare-s-using-xcode) and web portal [reference](https://github.com/PocketCareS/webportal/blob/master/README.md#steps-for-running-on-local-system).
 
 #### Steps to configure MongoDB database on IBM Openshift
 
-1. Open the redshift console
+1. Open the Redhat Openshift console
 2. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu.
 
 ![](assets/8.png)
 
-3. On screen select Database.
-4. From the options displayed on the screen. Select the database as MongoDB service with persistent storage.
+3. On the screen select Database.
+4. From the options displayed on the screen, select the database as MongoDB service with persistent storage.
 
 ![](assets/23.png)
 
-5. Select the DB name as &quot;pocketCare&quot;
-6. provide the credentials as required. Remember the credentials as these will be required in configuring the server.
+5. Select the DB name as **pocketCare**
+6. Provide the credentials as required. Take these credentials and store it in secured place as these will be required in configuring the server.
 7. Let all other options be as is.
-8. Drag to the bottom and select create.
+8. Scroll to the bottom and select Create.
 
 ![](assets/25.png)
 
 1. Navigate to the Developer > Topology on the left pane.
-2.  Select the mongodb icon on the screen.
-3.  On the window pop on right select services.
-4.  From the service menu, select the Cluster IP that appears at the position marked in the image below.
+2. Select the mongodb icon on the screen.
+3. On the window that opens on the right click on services.
+4. From the Service's menu, select the Cluster IP that appears at the position marked in the image below.
 
 ![](assets/20.png)
 
 13. Open the server application on your system.
-14. Open the src\main\resources\application.properties file
-15. ```#mongodb://<db-username>:<db-password>@<db-ip>:<db-port>/${spring.data.mongodb.name}```
-16. Mention the username, password.
-17. Mention the cluster IP in place of ```<db-ip>```
-18. By default dbport is 27017. If not, mention the customised port in place of db-port
+14. Open the ```src\main\resources\application.properties``` file
+15. Mention the username, password, cluster IP in place of ```<db-ip>``` and 
+16. By default <dbport> is 27017. If not, mention the customised port in place of <db-port>
+ ```#mongodb://<db-username>:<db-password>@<db-ip>:<db-port>/${spring.data.mongodb.name}```
 
 
 ### Steps to install server on IBM's cloud openshift 
 
 
-1. Get a RedHat openshift device on IBM cloud with the configuration of your choice.
+1. Get a RedHat Openshift device on IBM Cloud with the configuration of your choice as shown below.
 
 ![](assets/15.png)
 
 ![](assets/16.png)
 
-1. Open the redshift cloud console: Dashboard >Clusters >open cluster > openshift web console
+2. Open the Redhat Openshift Cloud console: Dashboard >Clusters >open cluster > openshift web console
 
 ![](assets/17.png)
 
-3. After clicking on the project, a screen similar to the image below should appear. Just click on the Administrator in the top left corner and select Developer from the drop-down menu. ![](assets/3.png)
-4. On the screen that loads, click on From Git.
+3. After clicking on the project, a screen similar to the image below should appear. Click on the Administrator in the top left corner and select Developer from the drop-down menu. 
+
+![](assets/3.png)
+4. On the screen that loads, click on **From Git**.
 
 ![](assets/4.png)
 ![](assets/5.png)
 
-5. In the Git Repo URL section, paste the link &quot; **https://github.com/PocketCareS/server**&quot; from the Github repository.
+5. In the **Git Repo URL section**, paste the link "**https://github.com/PocketCareS/server**" which points to the server Github repository.
 
 Note: Click on More Advanced Options to specify the branch name(if-any). By default, the branch is master and we do not need to specify it.
 
-6. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. ![](assets/5.png)
-7. Let other options be as they are, no fiddling with them. Just make sure that the checkbox in the Advanced Options section is checked as shown in the image below and then click on Create.
+6. Scroll down to select Builder Image. It is supposed to be Java in our case. After clicking on Java, make sure to change the Java version to 8 from the drop-down that appears. 
+
+![](assets/5.png)
+
+7. Let other options be as they are. Make sure that the checkbox in the Advanced Options section is checked and then click on Create.
+
 8. Click on the penguin logo on the screen. We can see that a build is already in progress. Keep a little patience and wait for the build to finish.
+
 9. As soon as the build is finished, a pod will automatically be deployed. Congratulations, you have successfully deployed your spring-boot application on Redhat Openshift nonchalantly.
 
 ![](assets/5.png)
@@ -96,7 +102,7 @@ The link in this section is your newly deployed spring-boot application.
 ![](assets/3.png)
 
 11. Get the IP address of your system.
-12. Access the URL ```<ip\>/user/sample. If it prints "Hello World"``` Then the server is up and running.
+12. Access the URL ```<ip>/user/sample. If it prints "Hello World"``` Then the server is up and running.
 13. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
 14. If on the deployment logs the SERVER_PORT issue appears. Navigate to the
 
@@ -130,17 +136,21 @@ Environment variables of the POD and enter the variable name as SERVER_PORT and 
 ##### IBM Push Notification JAVA SDK setup
 
 1. Setup the JAVA SDK service.
-2. Got to your IBM push notification service. [link](https://cloud.ibm.com/services/imfpush/crn%3Av1%3Abluemix%3Apublic%3Aimfpush%3Aus-south%3Aa%2F446673b322a041c3852f5abaf675bae9%3A2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6%3A%3A?paneId=credentials)
- 3. On the image given below. **Select Service Credentials** from left pane.
- 4. Create new credentials if not already.
+2. Go to your IBM push notification service. [link](https://cloud.ibm.com/services/imfpush/crn%3Av1%3Abluemix%3Apublic%3Aimfpush%3Aus-south%3Aa%2F446673b322a041c3852f5abaf675bae9%3A2abe5c40-d5aa-4ff0-9b2e-d76327e76ee6%3A%3A?paneId=credentials)
+3. On the image given below. **Select Service Credentials** from left pane.
+4. Create new credentials if not already.
 
 ![](assets/24.png)
 
-  1. Open the JAVA server application code on the IDE (sts)
-  2. Navigate to the Class **src/main/java/com/PocketCare/pocketCare/Service/IBMNotificationService.java**
-  3. Copy the appGuid from IBM console and paste at 
-  ```Java private static final String **APIID= "YOUR IBM push notification APP ID";```
-  4. Copy the apikey from IBM console and paste at 
-  ```Java private static final String **APIKEY = "Your IBM push notifcation API KEY";```
-  5. Build the server application on local or cloud console.
+1. Open the JAVA server application code on the IDE (sts)
+2. Navigate to the Class **src/main/java/com/PocketCare/pocketCare/Service/IBMNotificationService.java**
+3. Copy the appGuid from IBM console and paste at 
+```java 
+private static final String APIID = "YOUR IBM push notification APP ID";
+```
+4. Copy the apikey from IBM console and paste at 
+```java
+private static final String APIKEY = "Your IBM push notifcation API KEY";
+```
+5. Build the server application on local or cloud console.
 
