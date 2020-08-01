@@ -105,7 +105,6 @@ The link in this section is your newly deployed spring-boot application.
 12. Access the URL ```<ip>/user/sample. If it prints "Hello World"``` Then the server is up and running.
 13. Configure the IP address in the Android [reference], iOS [reference] and web portal[reference].
 14. If on the deployment logs the SERVER_PORT issue appears. Navigate to the
-
 Environment variables of the POD and enter the variable name as SERVER_PORT and value as 8080
 
 ![](assets/19.png)
