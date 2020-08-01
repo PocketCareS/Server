@@ -51,7 +51,7 @@ Before you begin, make sure you satisfy the following requirements in order to r
 
 [Installation Guide](https://github.com/PocketCareS/server/blob/master/Installation.md)
 
-Once the application starts, follow the on-boarding process and read how P works below. 
+Once the application starts, follow the on-boarding process and read how PocketCare S works below. 
 
 ## How does PocketCare S Work?
 
